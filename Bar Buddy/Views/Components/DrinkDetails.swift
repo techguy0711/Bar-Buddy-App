@@ -55,155 +55,93 @@ struct IngredientsView: View {
             if let strIngredient1 = drink.strIngredient1 {
                 if let strMeasure1 = drink.strMeasure1 {
                     Text("Ingredients:").bold().font(.title)
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient2 {
                 if let strMeasure1 = drink.strMeasure2 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient3 {
                 if let strMeasure1 = drink.strMeasure3 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient4 {
                 if let strMeasure1 = drink.strMeasure4 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient5 {
                 if let strMeasure1 = drink.strMeasure5 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient6 {
                 if let strMeasure1 = drink.strMeasure6 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient7 {
                 if let strMeasure1 = drink.strMeasure7 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient8 {
                 if let strMeasure1 = drink.strMeasure8 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient9 {
                 if let strMeasure1 = drink.strMeasure9 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient10 {
                 if let strMeasure1 = drink.strMeasure10 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient11 {
                 if let strMeasure1 = drink.strMeasure11 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient12 {
                 if let strMeasure1 = drink.strMeasure12 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient13 {
                 if let strMeasure1 = drink.strMeasure13 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient14 {
                 if let strMeasure1 = drink.strMeasure14 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
             if let strIngredient1 = drink.strIngredient15 {
                 if let strMeasure1 = drink.strMeasure15 {
-                    HStack(alignment: .firstTextBaseline) {
-                        Image(systemName: "checkmark.circle")
-                            .foregroundColor(.green.opacity(0.5))
-                        Text("\(strIngredient1):")
-                        Text(strMeasure1)
-                    }.padding(.trailing)
+                    IngredientView(strIngredient1: strIngredient1, strMeasure1: strMeasure1)
                 }
             }
         }.frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct IngredientView: View {
+    var strIngredient1:String
+    var strMeasure1:String
+    var body: some View {
+        HStack(alignment: .firstTextBaseline) {
+            Image(systemName: "checkmark.circle")
+                .foregroundColor(.green.opacity(0.5))
+            Text("\(strIngredient1):")
+            Text(strMeasure1)
+        }.padding(.trailing)
     }
 }
 
