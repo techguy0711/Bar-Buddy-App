@@ -44,8 +44,10 @@ struct DrinkRow: View {
                 }
             }.foregroundColor(.primary)
         })
-        .sheet(isPresented: $showDetails, content: {
-            DrinkDetails(drink: drink)
+        .fullScreenCover(isPresented: $showDetails, content: {
+            DrinkDetails(drink: drink, dismiss: {
+                showDetails = false
+            })
                 .onDisappear {
                     showDetails = false
                 }

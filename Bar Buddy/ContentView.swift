@@ -10,7 +10,8 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    
+    @State var selection: Int?
+
     var tabs: some View {
         TabView {
             Popular().tabItem {
@@ -41,19 +42,19 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "wineglass")
                     Text("Popular")
-                }
+                }.tag("0")
                 NavigationLink {
                     Faves()
                 } label: {
                     Image(systemName: "star")
                     Text("Faves")
-                }
+                }.tag("1")
                 NavigationLink {
                     Search()
                 } label: {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
-                }
+                }.tag("2")
             }
         }
     }

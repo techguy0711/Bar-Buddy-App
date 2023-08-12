@@ -10,17 +10,25 @@ import SwiftData
 
 struct DrinkDetails: View {
     var drink: Drink
+    @State var dismiss: () -> Void
     @Environment(\.modelContext) private var modelContext
     @Query private var faveDrinks: [DrinkFav]
     
     var body: some View {
         HStack {
+            Image(systemName: "lessthan")
+                .padding()
+                .onTapGesture {
+                    dismiss()
+                }
+            Spacer()
             if let tittle = drink.strDrink {
                 Text(tittle)
                     .bold()
                     .font(.largeTitle)
                 
             }
+            Spacer()
         }.padding()
         GeometryReader { geo in
             ScrollView(.vertical) {
@@ -203,5 +211,5 @@ struct IngredientView: View {
                               strMeasure12: "Measure 12",
                               strMeasure13: "Measure 13",
                               strMeasure14: "Measure 14",
-                              strMeasure15: "Measure 15"))
+                              strMeasure15: "Measure 15"), dismiss: {})
 }
