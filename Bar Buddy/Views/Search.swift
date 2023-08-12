@@ -27,6 +27,11 @@ struct Search: View {
                         }
                     }
             }.animation(.easeInOut, value: 10)
+                .onAppear {
+                    Task {
+                        await model.fetchDrinksListResults(searchText:searchText)
+                    }
+                }
         }.searchable(text: $searchText, isPresented: $isSearching)
             .onSubmit(of: .search) {
                 Task {
