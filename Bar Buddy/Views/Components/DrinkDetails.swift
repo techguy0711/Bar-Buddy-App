@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DrinkDetails: View {
     var drink: Drink
+    @Environment(\.modelContext) private var modelContext
+    @Query private var faveDrinks: [DrinkFav]
+    
     var body: some View {
         HStack {
             if let tittle = drink.strDrink {
@@ -17,7 +21,7 @@ struct DrinkDetails: View {
                     .font(.largeTitle)
                 
             }
-        }.frame(height: 35)
+        }.padding()
         GeometryReader { geo in
             ScrollView(.vertical) {
                 VStack {
@@ -41,6 +45,22 @@ struct DrinkDetails: View {
                         IngredientsView(drink: drink)
                             .padding(.leading)
                         Spacer()
+                    }.padding(.bottom)
+                    if faveDrinks.contains(where: { faves in
+                        mapFaveDrink(drink).strDrink == faves.strDrink
+                    }) == false {
+                        Spacer(minLength: 40)
+                        Button(action: {
+                            withAnimation {
+                                modelContext.insert(mapFaveDrink(drink))
+                            }
+                        }, label: {
+                            HStack {
+                                Image(systemName: "star.fill")
+                                Text("Add to Favorites")
+                            }
+                            .padding()
+                        }).buttonStyle(FavoritesButtonStyle())
                     }
                 }
             }
@@ -50,6 +70,7 @@ struct DrinkDetails: View {
 
 struct IngredientsView: View {
     var drink: Drink
+    
     var body: some View {
         VStack(alignment: .leading) {
             if let strIngredient1 = drink.strIngredient1 {

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A970B0A92A7F5D2A00567A4B /* Bar_BuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0A82A7F5D2A00567A4B /* Bar_BuddyApp.swift */; };
 		A970B0AB2A7F5D2A00567A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0AA2A7F5D2A00567A4B /* ContentView.swift */; };
-		A970B0AD2A7F5D2A00567A4B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0AC2A7F5D2A00567A4B /* Item.swift */; };
+		A970B0AD2A7F5D2A00567A4B /* DrinkFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0AC2A7F5D2A00567A4B /* DrinkFav.swift */; };
 		A970B0AF2A7F5D2C00567A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A970B0AE2A7F5D2C00567A4B /* Assets.xcassets */; };
 		A970B0B32A7F5D2C00567A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A970B0B22A7F5D2C00567A4B /* Preview Assets.xcassets */; };
 		A970B0BD2A7F5EE700567A4B /* Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0BC2A7F5EE700567A4B /* Popular.swift */; };
@@ -23,6 +23,7 @@
 		A970B0D22A7FA45D00567A4B /* SearchLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0D12A7FA45D00567A4B /* SearchLogic.swift */; };
 		A970B0D72A7FC33A00567A4B /* YoutubeEmbeddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0D62A7FC33A00567A4B /* YoutubeEmbeddedView.swift */; };
 		A970B0D92A80441000567A4B /* DrinkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0D82A80441000567A4B /* DrinkDetails.swift */; };
+		A97C62862A87CD4300FF9AEC /* Button+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C62852A87CD4300FF9AEC /* Button+Styles.swift */; };
 		A9BC503F2A8065B2006EF2D9 /* DrinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BC503E2A8065B2006EF2D9 /* DrinkList.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +31,7 @@
 		A970B0A52A7F5D2A00567A4B /* Bar Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970B0A82A7F5D2A00567A4B /* Bar_BuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar_BuddyApp.swift; sourceTree = "<group>"; };
 		A970B0AA2A7F5D2A00567A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A970B0AC2A7F5D2A00567A4B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A970B0AC2A7F5D2A00567A4B /* DrinkFav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkFav.swift; sourceTree = "<group>"; };
 		A970B0AE2A7F5D2C00567A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A970B0B02A7F5D2C00567A4B /* Bar_Buddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bar_Buddy.entitlements; sourceTree = "<group>"; };
 		A970B0B22A7F5D2C00567A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		A970B0D12A7FA45D00567A4B /* SearchLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLogic.swift; sourceTree = "<group>"; };
 		A970B0D62A7FC33A00567A4B /* YoutubeEmbeddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeEmbeddedView.swift; sourceTree = "<group>"; };
 		A970B0D82A80441000567A4B /* DrinkDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetails.swift; sourceTree = "<group>"; };
+		A97C62852A87CD4300FF9AEC /* Button+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Styles.swift"; sourceTree = "<group>"; };
 		A9BC503E2A8065B2006EF2D9 /* DrinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,12 +80,12 @@
 		A970B0A72A7F5D2A00567A4B /* Bar Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				A97C62842A87CD3200FF9AEC /* Styles */,
 				A970B0C32A7F623E00567A4B /* Logic */,
 				A970B0C22A7F622800567A4B /* Models */,
 				A970B0B92A7F5E9800567A4B /* Views */,
 				A970B0A82A7F5D2A00567A4B /* Bar_BuddyApp.swift */,
 				A970B0AA2A7F5D2A00567A4B /* ContentView.swift */,
-				A970B0AC2A7F5D2A00567A4B /* Item.swift */,
 				A970B0AE2A7F5D2C00567A4B /* Assets.xcassets */,
 				A970B0B02A7F5D2C00567A4B /* Bar_Buddy.entitlements */,
 				A970B0B12A7F5D2C00567A4B /* Preview Content */,
@@ -114,6 +116,7 @@
 		A970B0C22A7F622800567A4B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A970B0AC2A7F5D2A00567A4B /* DrinkFav.swift */,
 				A970B0C42A7F6DF600567A4B /* DrinksModelResponse.swift */,
 			);
 			path = Models;
@@ -146,6 +149,14 @@
 				A9BC503E2A8065B2006EF2D9 /* DrinkList.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A97C62842A87CD3200FF9AEC /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A97C62852A87CD4300FF9AEC /* Button+Styles.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +238,9 @@
 				A970B0D72A7FC33A00567A4B /* YoutubeEmbeddedView.swift in Sources */,
 				A970B0CD2A7FA07500567A4B /* DrinkRow.swift in Sources */,
 				A970B0C52A7F6DF600567A4B /* DrinksModelResponse.swift in Sources */,
+				A97C62862A87CD4300FF9AEC /* Button+Styles.swift in Sources */,
 				A970B0D22A7FA45D00567A4B /* SearchLogic.swift in Sources */,
-				A970B0AD2A7F5D2A00567A4B /* Item.swift in Sources */,
+				A970B0AD2A7F5D2A00567A4B /* DrinkFav.swift in Sources */,
 				A970B0CF2A7FA26500567A4B /* ListLoadingView.swift in Sources */,
 				A970B0C72A7F6EB300567A4B /* PopularLogic.swift in Sources */,
 				A9BC503F2A8065B2006EF2D9 /* DrinkList.swift in Sources */,
