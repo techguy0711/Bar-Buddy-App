@@ -11,20 +11,22 @@ import Combine
 struct Popular: View {
     @ObservedObject var model = PopularLogic()
     var body: some View {
-        VStack {
-            switch model.state {
-            case .loading:
-                ListLoadingView()
-            case .failed:
-                Text("4 oh 4").bold()
-            case .success(let drinks):
-                DrinkList(drinks: drinks.drinks)
+        NavigationView {
+            VStack {
+                switch model.state {
+                case .loading:
+                    ListLoadingView()
+                case .failed:
+                    Text("4 oh 4").bold()
+                case .success(let drinks):
+                    DrinkList(drinks: drinks.drinks)
+                }
+            }.task {
+                model.fetchPopularDrinksList()
             }
-        }.task {
-            model.fetchPopularDrinksList()
-        }
-        .refreshable {
-            model.fetchPopularDrinksList()
+            .refreshable {
+                model.fetchPopularDrinksList()
+            }.navigationTitle("Popular")
         }
     }
 }

@@ -15,64 +15,50 @@ struct DrinkDetails: View {
     @Query private var faveDrinks: [DrinkFav]
     
     var body: some View {
-        HStack {
-            Image(systemName: "lessthan")
-                .padding()
-                .onTapGesture {
-                    dismiss()
-                }
-            Spacer()
-            if let tittle = drink.strDrink {
-                Text(tittle)
-                    .bold()
-                    .font(.largeTitle)
-                
-            }
-            Spacer()
-        }.padding()
-        GeometryReader { geo in
-            ScrollView(.vertical) {
-                VStack {
-                    if let video = drink.strVideo {
-                        YouTubeView(url: video)
-                            .scaledToFit()
-                            .frame(width: geo.size.width, height: geo.size.height / 2.5)
-                    } else {
-                        if let thumbnail = drink.strDrinkThumb {
-                            AsyncImage(url: URL(string: thumbnail))
-                                .aspectRatio(contentMode: .fit)
+            GeometryReader { geo in
+                ScrollView(.vertical) {
+                    VStack {
+                        if let video = drink.strVideo {
+                            YouTubeView(url: video)
+                                .scaledToFit()
                                 .frame(width: geo.size.width, height: geo.size.height / 2.5)
-                                .clipped()
+                        } else {
+                            if let thumbnail = drink.strDrinkThumb {
+                                AsyncImage(url: URL(string: thumbnail))
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geo.size.width, height: geo.size.height / 2.5)
+                                    .clipped()
+                            }
+                        }
+                        if let description = drink.strInstructions {
+                            Text(description)
+                                .padding()
+                        }
+                        HStack {
+                            IngredientsView(drink: drink)
+                                .padding(.leading)
+                            Spacer()
+                        }.padding(.bottom)
+                        if faveDrinks.contains(where: { faves in
+                            mapFaveDrink(drink).strDrink == faves.strDrink
+                        }) == false {
+                            Spacer(minLength: 40)
+                            Button(action: {
+                                withAnimation {
+                                    modelContext.insert(mapFaveDrink(drink))
+                                }
+                            }, label: {
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                    Text("Add to Favorites")
+                                }
+                                .padding()
+                            }).buttonStyle(FavoritesButtonStyle())
                         }
                     }
-                    if let description = drink.strInstructions {
-                        Text(description)
-                            .padding()
-                    }
-                    HStack {
-                        IngredientsView(drink: drink)
-                            .padding(.leading)
-                        Spacer()
-                    }.padding(.bottom)
-                    if faveDrinks.contains(where: { faves in
-                        mapFaveDrink(drink).strDrink == faves.strDrink
-                    }) == false {
-                        Spacer(minLength: 40)
-                        Button(action: {
-                            withAnimation {
-                                modelContext.insert(mapFaveDrink(drink))
-                            }
-                        }, label: {
-                            HStack {
-                                Image(systemName: "star.fill")
-                                Text("Add to Favorites")
-                            }
-                            .padding()
-                        }).buttonStyle(FavoritesButtonStyle())
-                    }
                 }
-            }
-        }
+            }.navigationTitle(drink.strDrink ?? "")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

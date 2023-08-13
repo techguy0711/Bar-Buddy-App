@@ -31,7 +31,7 @@ struct Search: View {
                     Task {
                         await model.fetchDrinksListResults(searchText:searchText)
                     }
-                }
+                }.navigationTitle("Search")
         }.searchable(text: $searchText, isPresented: $isSearching)
             .onSubmit(of: .search) {
                 Task {

@@ -11,17 +11,19 @@ struct DrinkRow: View {
     var drink: Drink
     @State private var showDetails:Bool = false
     var body: some View {
-        Button(action: {
-            showDetails = true
+        NavigationLink(destination: {
+            DrinkDetails(drink: drink, dismiss: {
+                showDetails = false
+            })
         }, label: {
             VStack {
                 if let url = drink.strDrinkThumb {
-                    ZStack {
-                        AsyncImage(url: URL(string: url))
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 200)
-                            .clipped()
-                    }
+                    AsyncImage(url: URL(string: url))
+                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
+                        .frame(width: 350, height: 200)
+                        .clipped()
+                        .padding(.horizontal)
                 }
                 HStack {
                     if let strDrink = drink.strDrink {
@@ -32,8 +34,7 @@ struct DrinkRow: View {
                             .lineLimit(3)
                             .multilineTextAlignment(.leading   )
                     }
-                    Divider()
-                        .frame(maxWidth: 120)
+                    Spacer()
                     if let tags = drink.strTags {
                         ScrollView {
                             Text(tags.replacingOccurrences(of: ",", with: "\n")).font(.footnote)
@@ -43,14 +44,6 @@ struct DrinkRow: View {
                     }
                 }
             }.foregroundColor(.primary)
-        })
-        .fullScreenCover(isPresented: $showDetails, content: {
-            DrinkDetails(drink: drink, dismiss: {
-                showDetails = false
-            })
-                .onDisappear {
-                    showDetails = false
-                }
         }).frame(alignment: .center)
     }
 }

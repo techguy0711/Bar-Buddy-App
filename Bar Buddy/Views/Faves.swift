@@ -14,36 +14,38 @@ struct Faves: View {
     @State private var faveDrinks: [DrinkFav] = []
     
     var body: some View {
-        VStack(alignment: .center) {
-            GeometryReader { geo in
-                if queryFaveDrinks.isEmpty {
-                    VStack(alignment: .center) {
-                        Spacer()
-                        HStack {
+        NavigationView {
+            VStack(alignment: .center) {
+                GeometryReader { geo in
+                    if queryFaveDrinks.isEmpty {
+                        VStack(alignment: .center) {
                             Spacer()
-                            VStack {
-                                Text("🙁")
-                                    .scaleEffect(CGSize(width: 5.0, height: 5.0))
-                                    .padding(50)
-                                Text("No favorites yet!")
-                                    .font(.title)
+                            HStack {
+                                Spacer()
+                                VStack {
+                                    Text("🙁")
+                                        .scaleEffect(CGSize(width: 5.0, height: 5.0))
+                                        .padding(50)
+                                    Text("No favorites yet!")
+                                        .font(.title)
+                                }
+                                Spacer()
                             }
                             Spacer()
                         }
-                        Spacer()
-                    }
-                } else {
-                    List {
-                        ForEach($faveDrinks, id: \.id, editActions: .delete) { drink in
-                            DrinkRow(drink: ReadFaveDrink(drink.wrappedValue))
-                                .frame(width: geo.size.width)
-                        }.onDelete(perform: { indexSet in
-                            deleteItems(offsets: indexSet)
-                            faveDrinks = queryFaveDrinks
-                        })
+                    } else {
+                        List {
+                            ForEach($faveDrinks, id: \.id, editActions: .delete) { drink in
+                                DrinkRow(drink: ReadFaveDrink(drink.wrappedValue))
+                                    .frame(width: geo.size.width)
+                            }.onDelete(perform: { indexSet in
+                                deleteItems(offsets: indexSet)
+                                faveDrinks = queryFaveDrinks
+                            })
+                        }
                     }
                 }
-            }
+            }.navigationTitle("Favorites")
         }
         .onAppear(perform: {
             faveDrinks = queryFaveDrinks

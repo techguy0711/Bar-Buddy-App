@@ -21,7 +21,7 @@ struct ContentView: View {
             Faves().tabItem {
                 VStack {
                     Image(systemName: "star")
-                    Text("Faves")
+                    Text("Favorites")
                 }
                 
             }
@@ -47,7 +47,7 @@ struct ContentView: View {
                     Faves()
                 } label: {
                     Image(systemName: "star")
-                    Text("Faves")
+                    Text("Favorites")
                 }.tag("1")
                 NavigationLink {
                     Search()
