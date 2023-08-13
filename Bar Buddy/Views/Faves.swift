@@ -46,10 +46,10 @@ struct Faves: View {
                     }
                 }
             }.navigationTitle("Favorites")
+                .onAppear {
+                    faveDrinks = queryFaveDrinks
+                }
         }
-        .onAppear(perform: {
-            faveDrinks = queryFaveDrinks
-        })
     }
     private func deleteItems(offsets: IndexSet) {
         withAnimation {

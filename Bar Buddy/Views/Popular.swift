@@ -11,7 +11,7 @@ import Combine
 struct Popular: View {
     @ObservedObject var model = PopularLogic()
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 switch model.state {
                 case .loading:

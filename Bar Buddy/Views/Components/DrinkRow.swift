@@ -21,7 +21,7 @@ struct DrinkRow: View {
                     AsyncImage(url: URL(string: url))
                         .aspectRatio(contentMode: .fit)
                         .scaledToFit()
-                        .frame(width: 350, height: 200)
+                        .frame(height: 200)
                         .clipped()
                         .padding(.horizontal)
                 }
