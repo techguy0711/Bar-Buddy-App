@@ -7,13 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import Combine
 
 struct DrinkDetails: View {
     var drink: Drink
     @State var dismiss: () -> Void
     @Environment(\.modelContext) private var modelContext
     @Query private var faveDrinks: [DrinkFav]
-    
+    @ObservedObject var model = DrinkDetailsLogic()
+
     var body: some View {
             GeometryReader { geo in
                 ScrollView(.vertical) {
@@ -35,10 +37,25 @@ struct DrinkDetails: View {
                                 .padding()
                         }
                         HStack {
-                            IngredientsView(drink: drink)
-                                .padding(.leading)
+                            if drink.strIngredient1 == nil {
+                                switch model.state {
+                                case .success(let drink):
+                                    IngredientsView(drink: drink)
+                                        .padding(.leading)
+                                default:
+                                    EmptyView()
+                                }
+                            } else {
+                                IngredientsView(drink: drink)
+                                    .padding(.leading)
+                            }
                             Spacer()
                         }.padding(.bottom)
+                            .task {
+                                if drink.strIngredient1 == nil {
+                                    model.fetchDrinkDetails(id: drink.idDrink ?? "")
+                                }
+                            }
                         if faveDrinks.contains(where: { faves in
                             mapFaveDrink(drink).strDrink == faves.strDrink
                         }) == false {

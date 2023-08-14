@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A933853C2A8A586900EE2C02 /* DrinkDetailsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933853B2A8A586900EE2C02 /* DrinkDetailsLogic.swift */; };
 		A970B0A92A7F5D2A00567A4B /* Bar_BuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0A82A7F5D2A00567A4B /* Bar_BuddyApp.swift */; };
 		A970B0AB2A7F5D2A00567A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0AA2A7F5D2A00567A4B /* ContentView.swift */; };
 		A970B0AD2A7F5D2A00567A4B /* DrinkFav.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970B0AC2A7F5D2A00567A4B /* DrinkFav.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A933853B2A8A586900EE2C02 /* DrinkDetailsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkDetailsLogic.swift; sourceTree = "<group>"; };
 		A970B0A52A7F5D2A00567A4B /* Bar Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970B0A82A7F5D2A00567A4B /* Bar_BuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar_BuddyApp.swift; sourceTree = "<group>"; };
 		A970B0AA2A7F5D2A00567A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		A970B0C32A7F623E00567A4B /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				A933853B2A8A586900EE2C02 /* DrinkDetailsLogic.swift */,
 				A970B0C62A7F6EB300567A4B /* PopularLogic.swift */,
 				A970B0D12A7FA45D00567A4B /* SearchLogic.swift */,
 			);
@@ -235,6 +238,7 @@
 				A970B0BD2A7F5EE700567A4B /* Popular.swift in Sources */,
 				A970B0AB2A7F5D2A00567A4B /* ContentView.swift in Sources */,
 				A970B0BF2A7F5F1500567A4B /* Search.swift in Sources */,
+				A933853C2A8A586900EE2C02 /* DrinkDetailsLogic.swift in Sources */,
 				A970B0D72A7FC33A00567A4B /* YoutubeEmbeddedView.swift in Sources */,
 				A970B0CD2A7FA07500567A4B /* DrinkRow.swift in Sources */,
 				A970B0C52A7F6DF600567A4B /* DrinksModelResponse.swift in Sources */,
