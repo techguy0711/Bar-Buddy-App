@@ -17,6 +17,12 @@ struct Search: View {
                 switch model.state {
                 case .loading:
                     ListLoadingView()
+                    //Fixes issue when on orientation change state gets stuck on loading
+                        .onAppear(perform: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                                model.fetchDrinksListResults(searchText:searchText)
+                            }
+                        })
                 case .failed:
                     Text("4 oh 4")
                 case .noResults:

@@ -16,6 +16,14 @@ struct Popular: View {
                 switch model.state {
                 case .loading:
                     ListLoadingView()
+                    //Fixes issue when on orientation change state gets stuck on loading
+                        .onAppear(perform: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                                Task {
+                                    model.fetchPopularDrinksList()
+                                }
+                            }
+                        })
                 case .failed:
                     Text("4 oh 4").bold()
                 case .success(let drinks):
