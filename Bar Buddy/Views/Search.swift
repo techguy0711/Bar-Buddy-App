@@ -14,30 +14,48 @@ struct Search: View {
     var body: some View {
         NavigationStack {
             VStack {
-                    switch model.state {
-                    case .loading:
-                        ListLoadingView()
-                    case .failed:
-                        Text("4 oh 4")
-                    case .success(let drinks):
-                        if drinks.drinks.isEmpty {
-                            Text("No results")
-                        } else {
-                            DrinkList(drinks: drinks.drinks)
-                        }
+                switch model.state {
+                case .loading:
+                    ListLoadingView()
+                case .failed:
+                    Text("4 oh 4")
+                case .noResults:
+                    NoResultsView(searchText: searchText)
+                case .success(let drinks):
+                    if drinks.drinks.isEmpty {
+                        NoResultsView(searchText: searchText)
+                    } else {
+                        DrinkList(drinks: drinks.drinks)
                     }
+                }
             }.animation(.easeInOut, value: 10)
                 .onAppear {
-                    Task {
-                        await model.fetchDrinksListResults(searchText:searchText)
-                    }
+                    model.fetchDrinksListResults(searchText:searchText)
                 }.navigationTitle("Search")
         }.searchable(text: $searchText, isPresented: $isSearching)
-            .onSubmit(of: .search) {
-                Task {
-                    await model.fetchDrinksListResults(searchText:searchText)
+            .onChange(of: isSearching, { oldValue, newValue in
+                if !isSearching && searchText.isEmpty {
+                    model.fetchDrinksListResults(searchText:searchText)
                 }
+            })
+            .onSubmit(of: .search) {
+                model.fetchDrinksListResults(searchText:searchText)
             }
+    }
+}
+
+struct NoResultsView: View {
+    var searchText: String
+    var body: some View {
+        VStack(spacing: 8, content: {
+            Image(systemName: "magnifyingglass")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+            Text("No results found!")
+                .bold()
+                .font(.title)
+        })
     }
 }
 

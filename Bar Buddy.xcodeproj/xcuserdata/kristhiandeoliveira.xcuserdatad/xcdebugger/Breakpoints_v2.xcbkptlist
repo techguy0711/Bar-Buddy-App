@@ -148,5 +148,117 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6459ACDC-2E12-48AB-AF84-297D31329E8A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bar Buddy/Logic/SearchLogic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "fetchDrinksListResults(searchText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E42BAC39-6C8E-4238-A548-9F5B85FE8D01"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bar Buddy/Logic/SearchLogic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "fetchDrinksListResults(searchText:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E42BAC39-6C8E-4238-A548-9F5B85FE8D01 - 3563f2da7af24988"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in Bar_Buddy.SearchLogic.fetchDrinksListResults(searchText: Swift.String) -&gt; ()"
+                  moduleName = "Bar Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kristhiandeoliveira/Downloads/Bar%20Buddy/Bar-Buddy-App/Bar%20Buddy/Logic/SearchLogic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "E42BAC39-6C8E-4238-A548-9F5B85FE8D01 - 3563f2da7af249a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in Bar_Buddy.SearchLogic.fetchDrinksListResults(searchText: Swift.String) -&gt; ()"
+                  moduleName = "Bar Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kristhiandeoliveira/Downloads/Bar%20Buddy/Bar-Buddy-App/Bar%20Buddy/Logic/SearchLogic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB7D3DBB-67E3-4F28-B396-202D3DA4E198"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bar Buddy/Logic/SearchLogic.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "fetchDrinksListResults(searchText:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CB7D3DBB-67E3-4F28-B396-202D3DA4E198 - 23221dea75faea60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in Bar_Buddy.SearchLogic.fetchDrinksListResults(searchText: Swift.String) -&gt; ()"
+                  moduleName = "Bar Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kristhiandeoliveira/Downloads/Bar%20Buddy/Bar-Buddy-App/Bar%20Buddy/Logic/SearchLogic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "CB7D3DBB-67E3-4F28-B396-202D3DA4E198 - 23221dea75faea60"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 @Swift.MainActor () -&gt; () in Bar_Buddy.SearchLogic.fetchDrinksListResults(searchText: Swift.String) -&gt; ()"
+                  moduleName = "Bar Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kristhiandeoliveira/Downloads/Bar%20Buddy/Bar-Buddy-App/Bar%20Buddy/Logic/SearchLogic.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
