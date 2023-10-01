@@ -17,11 +17,8 @@ struct Search: View {
                 switch model.state {
                 case .loading:
                     ListLoadingView()
-                    //Fixes issue when on orientation change state gets stuck on loading
                         .onAppear(perform: {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                                 model.fetchDrinksListResults(searchText:searchText)
-                            }
                         })
                 case .failed:
                     Text("4 oh 4")
@@ -35,9 +32,7 @@ struct Search: View {
                     }
                 }
             }.animation(.easeInOut, value: 10)
-                .onAppear {
-                    model.fetchDrinksListResults(searchText:searchText)
-                }.navigationTitle("Search")
+            .navigationTitle("Search")
         }.searchable(text: $searchText, isPresented: $isSearching)
             .onChange(of: isSearching, { oldValue, newValue in
                 if !isSearching && searchText.isEmpty {
