@@ -63,7 +63,7 @@ struct ContentView: View {
             if UIDevice.current.userInterfaceIdiom == .phone {
                 tabs
             } else {
-                sidebar
+                tabs
             }
     }
 }
