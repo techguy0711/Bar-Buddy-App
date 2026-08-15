@@ -17,7 +17,7 @@
  * independent of `headerShown` and still works.
  */
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useNavigation, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -29,10 +29,33 @@ const SIDE_WIDTH = 92;
 
 export function ScreenHeader({ title }: { title: string }) {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
   const router = useRouter();
   const accent = useThemeColor({}, 'accent');
   const background = useThemeColor({}, 'background');
   const border = useThemeColor({}, 'border');
+
+  /**
+   * Ask the navigator to pop before asking expo-router.
+   *
+   * `router.canGoBack()` reads the root router state and reports false on
+   * native in cases where the stack can in fact pop. The old code fell through
+   * to `router.replace('/')` whenever it did — and since `/` *is* the Popular
+   * tab, going back from a drink looked correct from Popular and silently
+   * dropped you on the wrong tab from Favorites and Search. `navigation` is
+   * the stack the screen is actually mounted in, so it answers for that stack
+   * rather than for the router as a whole.
+   */
+  const goBack = () => {
+    if (navigation.canGoBack()) {
+      navigation.goBack();
+    } else if (router.canGoBack()) {
+      router.back();
+    } else {
+      // Only reachable on a cold deep link straight into a drink.
+      router.replace('/');
+    }
+  };
 
   return (
     <View
@@ -45,7 +68,7 @@ export function ScreenHeader({ title }: { title: string }) {
           accessibilityRole="button"
           accessibilityLabel="Go back"
           hitSlop={8}
-          onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
+          onPress={goBack}
           style={({ pressed }) => [styles.back, { opacity: pressed ? 0.5 : 1 }]}>
           <MaterialCommunityIcons name="chevron-left" size={28} color={accent} />
           <ThemedText style={[styles.backLabel, { color: accent }]}>Back</ThemedText>
