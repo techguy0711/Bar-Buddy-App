@@ -22,7 +22,11 @@ export default function RootLayout() {
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="drink/[id]" options={{ title: '' }} />
+            {/* Header hidden on purpose — the screen renders its own. See the
+                note in components/screen-header.tsx: the native iOS 26 nav bar
+                stops receiving taps in Expo Go. The edge-swipe back gesture is
+                unaffected by hiding it. */}
+            <Stack.Screen name="drink/[id]" options={{ headerShown: false }} />
           </Stack>
           <StatusBar style="auto" />
         </ThemeProvider>

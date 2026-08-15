@@ -7,13 +7,14 @@
  * ingredients — which is what fixed favourites opening without them.
  */
 import { Image } from 'expo-image';
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { IngredientsView } from '@/components/ingredients-view';
 import { MessageView } from '@/components/message-view';
+import { ScreenHeader } from '@/components/screen-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { YouTubeView } from '@/components/youtube-view';
@@ -58,17 +59,19 @@ export default function DrinkDetailsScreen() {
 
   if (!drink) {
     return (
-      <ThemedView style={[styles.container, styles.centered]}>
-        <Stack.Screen options={{ title: '' }} />
-        {hasFailed ? (
-          <MessageView
-            icon="glass-cocktail"
-            title="4 oh 4"
-            caption="Couldn't load this drink. Check your connection and try again."
-          />
-        ) : (
-          <ActivityIndicator size="large" />
-        )}
+      <ThemedView style={styles.container}>
+        <ScreenHeader title="" />
+        <View style={[styles.container, styles.centered]}>
+          {hasFailed ? (
+            <MessageView
+              icon="glass-cocktail"
+              title="4 oh 4"
+              caption="Couldn't load this drink. Check your connection and try again."
+            />
+          ) : (
+            <ActivityIndicator size="large" />
+          )}
+        </View>
       </ThemedView>
     );
   }
@@ -79,7 +82,7 @@ export default function DrinkDetailsScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <Stack.Screen options={{ title: name }} />
+      <ScreenHeader title={name} />
       <ScrollView contentContainerStyle={styles.content}>
         {drink.strVideo ? (
           <YouTubeView url={drink.strVideo} />
