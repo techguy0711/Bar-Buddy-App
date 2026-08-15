@@ -1,11 +1,17 @@
 /**
  * The Favorites tab, ported from `Faves.swift`.
  *
- * `@Query private var queryFaveDrinks: [DrinkFav]` becomes `useFavorites()`,
- * and SwiftUI's `editActions: .delete` becomes a swipeable row.
+ * `@Query private var queryFaveDrinks: [DrinkFav]` becomes `useFavorites()`.
+ *
+ * SwiftUI's `editActions: .delete` was first ported as a `ReanimatedSwipeable`
+ * row, which is why this was the only screen wrapping its rows in a
+ * gesture-handler component. Back navigation out of a drink opened from here
+ * misbehaved in a way it did not from Popular or Search — the one structural
+ * difference between the three — so the swipe is gone and removal is an
+ * ordinary button. It is also more discoverable than a hidden swipe, and
+ * behaves the same on iOS, Android and web.
  */
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import ReanimatedSwipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 
 import { DrinkRow } from '@/components/drink-row';
@@ -13,19 +19,26 @@ import { ListLoadingView } from '@/components/list-loading-view';
 import { MessageView } from '@/components/message-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { useFavorites } from '@/lib/favorites';
+import { useThemeColor } from '@/hooks/use-theme-color';
 import { titleOf, type Drink } from '@/lib/drink';
+import { useFavorites } from '@/lib/favorites';
 
-function DeleteAction({ drink, onDelete }: { drink: Drink; onDelete: () => void }) {
+function FavoriteRow({ drink, onRemove }: { drink: Drink; onRemove: () => void }) {
+  const muted = useThemeColor({}, 'muted');
+
   return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityLabel={`Remove ${titleOf(drink)} from favorites`}
-      onPress={onDelete}
-      style={({ pressed }) => [styles.deleteAction, { opacity: pressed ? 0.8 : 1 }]}>
-      <MaterialCommunityIcons name="trash-can-outline" size={24} color="#FFFFFF" />
-      <ThemedText style={styles.deleteLabel}>Delete</ThemedText>
-    </Pressable>
+    <View style={styles.item}>
+      <DrinkRow drink={drink} />
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`Remove ${titleOf(drink)} from favorites`}
+        hitSlop={8}
+        onPress={onRemove}
+        style={({ pressed }) => [styles.remove, { opacity: pressed ? 0.5 : 1 }]}>
+        <MaterialCommunityIcons name="trash-can-outline" size={18} color={muted} />
+        <ThemedText style={[styles.removeLabel, { color: muted }]}>Remove</ThemedText>
+      </Pressable>
+    </View>
   );
 }
 
@@ -59,20 +72,9 @@ export default function FavoritesScreen() {
         keyExtractor={(drink) => drink.idDrink}
         contentContainerStyle={styles.content}
         renderItem={({ item }) => (
-          <ReanimatedSwipeable
-            friction={2}
-            rightThreshold={40}
-            overshootRight={false}
-            renderRightActions={() => (
-              <DeleteAction drink={item} onDelete={() => removeFavorite(item.idDrink)} />
-            )}>
-            <DrinkRow drink={item} />
-          </ReanimatedSwipeable>
+          <FavoriteRow drink={item} onRemove={() => removeFavorite(item.idDrink)} />
         )}
       />
-      <View style={styles.hint}>
-        <ThemedText style={styles.hintText}>Swipe a drink left to remove it.</ThemedText>
-      </View>
     </ThemedView>
   );
 }
@@ -86,30 +88,22 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 16,
-    gap: 16,
+    gap: 20,
   },
-  deleteAction: {
-    width: 96,
+  item: {
+    gap: 8,
+  },
+  remove: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-    backgroundColor: '#FF3B30',
-    borderRadius: 16,
-    marginLeft: 12,
+    alignSelf: 'flex-end',
+    gap: 6,
+    minHeight: 44,
+    paddingHorizontal: 12,
   },
-  deleteLabel: {
-    color: '#FFFFFF',
-    fontSize: 13,
-    lineHeight: 18,
+  removeLabel: {
+    fontSize: 15,
+    lineHeight: 20,
     fontWeight: '600',
-  },
-  hint: {
-    alignItems: 'center',
-    paddingBottom: 12,
-  },
-  hintText: {
-    fontSize: 13,
-    lineHeight: 18,
-    opacity: 0.6,
   },
 });
